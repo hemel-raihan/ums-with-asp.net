@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="University_ManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminid" />
+    </Key>
+    <Property Name="adminid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_admin_users" FromRole="admin" ToRole="users" />
+  </EntityType>
+  <EntityType Name="bookborrow">
+    <Key>
+      <PropertyRef Name="borrowid" />
+    </Key>
+    <Property Name="borrowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="libraryid" Type="Int32" Nullable="false" />
+    <Property Name="bookname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="rdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="semail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="library" Relationship="Self.FK_book_borrows_libraries" FromRole="bookborrows" ToRole="libraries" />
+  </EntityType>
+  <EntityType Name="content">
+    <Key>
+      <PropertyRef Name="contentid" />
+    </Key>
+    <Property Name="contentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="courseid" Type="Int32" Nullable="false" />
+    <Property Name="contentname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contentpath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK_content_courses" FromRole="content" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="cours">
+    <Key>
+      <PropertyRef Name="courseid" />
+    </Key>
+    <Property Name="courseid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="coursename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cdescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cteacher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cstart" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="cend" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="cpic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cprice" Type="Int32" Nullable="false" />
+    <Property Name="session" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="contents" Relationship="Self.FK_content_courses" FromRole="courses" ToRole="content" />
+    <NavigationProperty Name="enrolls" Relationship="Self.FK_enroll_courses" FromRole="courses" ToRole="enroll" />
+    <NavigationProperty Name="notices" Relationship="Self.FK_notices_courses" FromRole="courses" ToRole="notices" />
+  </EntityType>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="docid" />
+    </Key>
+    <Property Name="docid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="docname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="docpath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_documents_users" FromRole="documents" ToRole="users" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="emp_id" />
+    </Key>
+    <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="salary" Type="Int32" Nullable="false" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_employee_users" FromRole="employee" ToRole="users" />
+  </EntityType>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="enrollid" />
+    </Key>
+    <Property Name="enrollid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="courseid" Type="Int32" Nullable="false" />
+    <Property Name="coursename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="teacherid" Type="Int32" Nullable="false" />
+    <Property Name="sid" Type="Int32" Nullable="false" />
+    <Property Name="session" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK_enroll_courses" FromRole="enroll" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="library">
+    <Key>
+      <PropertyRef Name="lid" />
+    </Key>
+    <Property Name="lid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bookname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="available" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bookborrows" Relationship="Self.FK_book_borrows_libraries" FromRole="libraries" ToRole="bookborrows" />
+  </EntityType>
+  <EntityType Name="notice">
+    <Key>
+      <PropertyRef Name="noticeid" />
+    </Key>
+    <Property Name="noticeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" Nullable="false" />
+    <Property Name="notice_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="decription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="cours" Relationship="Self.FK_notices_courses" FromRole="notices" ToRole="courses" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentid" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="student" Relationship="Self.FK_payment_student" FromRole="payment" ToRole="student" />
+  </EntityType>
+  <EntityType Name="photoorder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="photoid" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ownerid" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="skill" Relationship="Self.FK_photo_orders_skills" FromRole="photoorders" ToRole="skills" />
+  </EntityType>
+  <EntityType Name="skill">
+    <Key>
+      <PropertyRef Name="photoid" />
+    </Key>
+    <Property Name="photoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="photoorders" Relationship="Self.FK_photo_orders_skills" FromRole="skills" ToRole="photoorders" />
+    <NavigationProperty Name="skills1" Relationship="Self.FK_skills_skills" FromRole="skills" ToRole="skills1" />
+    <NavigationProperty Name="skill1" Relationship="Self.FK_skills_skills" FromRole="skills1" ToRole="skills" />
+    <NavigationProperty Name="skills11" Relationship="Self.FK_skills_skills1" FromRole="skills" ToRole="skills1" />
+    <NavigationProperty Name="skill2" Relationship="Self.FK_skills_skills1" FromRole="skills1" ToRole="skills" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studnetid" />
+    </Key>
+    <Property Name="studnetid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="cgpa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="addmissiondate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="payments" Relationship="Self.FK_payment_student" FromRole="student" ToRole="payment" />
+    <NavigationProperty Name="user" Relationship="Self.FK_student_users" FromRole="student" ToRole="users" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacherid" />
+    </Key>
+    <Property Name="teacherid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uid" Type="Int32" Nullable="false" />
+    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="salary" Type="Int32" Nullable="false" />
+    <Property Name="joindate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_teacher_users" FromRole="teacher" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <Property Name="dp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="admins" Relationship="Self.FK_admin_users" FromRole="users" ToRole="admin" />
+    <NavigationProperty Name="documents" Relationship="Self.FK_documents_users" FromRole="users" ToRole="documents" />
+    <NavigationProperty Name="employees" Relationship="Self.FK_employee_users" FromRole="users" ToRole="employee" />
+    <NavigationProperty Name="students" Relationship="Self.FK_student_users" FromRole="users" ToRole="student" />
+    <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_users" FromRole="users" ToRole="teacher" />
+  </EntityType>
+  <Association Name="FK_admin_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="admin" Type="Self.admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="admin">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_borrows_libraries">
+    <End Role="libraries" Type="Self.library" Multiplicity="1" />
+    <End Role="bookborrows" Type="Self.bookborrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="libraries">
+        <PropertyRef Name="lid" />
+      </Principal>
+      <Dependent Role="bookborrows">
+        <PropertyRef Name="libraryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_content_courses">
+    <End Role="courses" Type="Self.cours" Multiplicity="1" />
+    <End Role="content" Type="Self.content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="content">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enroll_courses">
+    <End Role="courses" Type="Self.cours" Multiplicity="1" />
+    <End Role="enroll" Type="Self.enroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="enroll">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notices_courses">
+    <End Role="courses" Type="Self.cours" Multiplicity="1" />
+    <End Role="notices" Type="Self.notice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="notices">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documents_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="documents" Type="Self.document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="documents">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="studnetid" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_photo_orders_skills">
+    <End Role="skills" Type="Self.skill" Multiplicity="1" />
+    <End Role="photoorders" Type="Self.photoorder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="photoorders">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_skills_skills">
+    <End Role="skills" Type="Self.skill" Multiplicity="1" />
+    <End Role="skills1" Type="Self.skill" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="skills1">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_skills_skills1">
+    <End Role="skills" Type="Self.skill" Multiplicity="1" />
+    <End Role="skills1" Type="Self.skill" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="skills1">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teacher_users">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversityManagementContext1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="bookborrows" EntityType="Self.bookborrow" />
+    <EntitySet Name="contents" EntityType="Self.content" />
+    <EntitySet Name="courses" EntityType="Self.cours" />
+    <EntitySet Name="documents" EntityType="Self.document" />
+    <EntitySet Name="employees" EntityType="Self.employee" />
+    <EntitySet Name="enrolls" EntityType="Self.enroll" />
+    <EntitySet Name="libraries" EntityType="Self.library" />
+    <EntitySet Name="notices" EntityType="Self.notice" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <EntitySet Name="photoorders" EntityType="Self.photoorder" />
+    <EntitySet Name="skills" EntityType="Self.skill" />
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="teachers" EntityType="Self.teacher" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_admin_users" Association="Self.FK_admin_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="admin" EntitySet="admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_borrows_libraries" Association="Self.FK_book_borrows_libraries">
+      <End Role="libraries" EntitySet="libraries" />
+      <End Role="bookborrows" EntitySet="bookborrows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_content_courses" Association="Self.FK_content_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="content" EntitySet="contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enroll_courses" Association="Self.FK_enroll_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="enroll" EntitySet="enrolls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notices_courses" Association="Self.FK_notices_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="notices" EntitySet="notices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documents_users" Association="Self.FK_documents_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="documents" EntitySet="documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_users" Association="Self.FK_employee_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="employee" EntitySet="employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_student" Association="Self.FK_payment_student">
+      <End Role="student" EntitySet="students" />
+      <End Role="payment" EntitySet="payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_photo_orders_skills" Association="Self.FK_photo_orders_skills">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="photoorders" EntitySet="photoorders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_skills_skills" Association="Self.FK_skills_skills">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="skills1" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_skills_skills1" Association="Self.FK_skills_skills1">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="skills1" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_users" Association="Self.FK_student_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="student" EntitySet="students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacher_users" Association="Self.FK_teacher_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="teacher" EntitySet="teachers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="University_ManagementModelStoreContainer" CdmEntityContainer="UniversityManagementContext1">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="University_ManagementModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookborrows">
+      <EntityTypeMapping TypeName="University_ManagementModel.bookborrow">
+        <MappingFragment StoreEntitySet="bookborrows">
+          <ScalarProperty Name="borrowid" ColumnName="borrowid" />
+          <ScalarProperty Name="libraryid" ColumnName="libraryid" />
+          <ScalarProperty Name="bookname" ColumnName="bookname" />
+          <ScalarProperty Name="bdate" ColumnName="bdate" />
+          <ScalarProperty Name="rdate" ColumnName="rdate" />
+          <ScalarProperty Name="semail" ColumnName="semail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contents">
+      <EntityTypeMapping TypeName="University_ManagementModel.content">
+        <MappingFragment StoreEntitySet="content">
+          <ScalarProperty Name="contentid" ColumnName="contentid" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="contentname" ColumnName="contentname" />
+          <ScalarProperty Name="contentpath" ColumnName="contentpath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="University_ManagementModel.cours">
+        <MappingFragment StoreEntitySet="courses">
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="coursename" ColumnName="coursename" />
+          <ScalarProperty Name="cdescription" ColumnName="cdescription" />
+          <ScalarProperty Name="cteacher" ColumnName="cteacher" />
+          <ScalarProperty Name="cstart" ColumnName="cstart" />
+          <ScalarProperty Name="cend" ColumnName="cend" />
+          <ScalarProperty Name="cpic" ColumnName="cpic" />
+          <ScalarProperty Name="cprice" ColumnName="cprice" />
+          <ScalarProperty Name="session" ColumnName="session" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="documents">
+      <EntityTypeMapping TypeName="University_ManagementModel.document">
+        <MappingFragment StoreEntitySet="documents">
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="docname" ColumnName="docname" />
+          <ScalarProperty Name="docpath" ColumnName="docpath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="University_ManagementModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="joindate" ColumnName="joindate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enrolls">
+      <EntityTypeMapping TypeName="University_ManagementModel.enroll">
+        <MappingFragment StoreEntitySet="enroll">
+          <ScalarProperty Name="enrollid" ColumnName="enrollid" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="coursename" ColumnName="coursename" />
+          <ScalarProperty Name="teacherid" ColumnName="teacherid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="session" ColumnName="session" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="libraries">
+      <EntityTypeMapping TypeName="University_ManagementModel.library">
+        <MappingFragment StoreEntitySet="libraries">
+          <ScalarProperty Name="lid" ColumnName="lid" />
+          <ScalarProperty Name="bookname" ColumnName="bookname" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="available" ColumnName="available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notices">
+      <EntityTypeMapping TypeName="University_ManagementModel.notice">
+        <MappingFragment StoreEntitySet="notices">
+          <ScalarProperty Name="noticeid" ColumnName="noticeid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="notice_name" ColumnName="notice_name" />
+          <ScalarProperty Name="decription" ColumnName="decription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="University_ManagementModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="payid" ColumnName="payid" />
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photoorders">
+      <EntityTypeMapping TypeName="University_ManagementModel.photoorder">
+        <MappingFragment StoreEntitySet="photoorders">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="photoid" ColumnName="photoid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="ownerid" ColumnName="ownerid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skills">
+      <EntityTypeMapping TypeName="University_ManagementModel.skill">
+        <MappingFragment StoreEntitySet="skills">
+          <ScalarProperty Name="photoid" ColumnName="photoid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="University_ManagementModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="studnetid" ColumnName="studnetid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="addmissiondate" ColumnName="addmissiondate" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="University_ManagementModel.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="teacherid" ColumnName="teacherid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="tname" ColumnName="tname" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="joindate" ColumnName="joindate" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="University_ManagementModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="dp" ColumnName="dp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

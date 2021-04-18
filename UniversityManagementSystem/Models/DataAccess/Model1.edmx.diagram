@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a2b5ff100534fc0b2fe277958b3bdb2" Name="Diagram1">
+        <EntityTypeShape EntityType="University_ManagementModel.admin" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.bookborrow" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.content" Width="1.5" PointX="10" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.cours" Width="1.5" PointX="7.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.document" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.employee" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.enroll" Width="1.5" PointX="10" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.library" Width="1.5" PointX="10.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.notice" Width="1.5" PointX="10" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.payment" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.photoorder" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.skill" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.student" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.teacher" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="University_ManagementModel.user" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="University_ManagementModel.FK_admin_users" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_book_borrows_libraries" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_content_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_enroll_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_notices_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_documents_users" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_employee_users" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_payment_student" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_photo_orders_skills" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_skills_skills" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_skills_skills1" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_student_users" ManuallyRouted="false" />
+        <AssociationConnector Association="University_ManagementModel.FK_teacher_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

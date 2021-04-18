@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="University_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="adminid" />
+    </Key>
+    <Property Name="adminid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dob" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bookborrows">
+    <Key>
+      <PropertyRef Name="borrowid" />
+    </Key>
+    <Property Name="borrowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="libraryid" Type="int" Nullable="false" />
+    <Property Name="bookname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bdate" Type="date" Nullable="false" />
+    <Property Name="rdate" Type="date" Nullable="false" />
+    <Property Name="semail" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="content">
+    <Key>
+      <PropertyRef Name="contentid" />
+    </Key>
+    <Property Name="contentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseid" Type="int" Nullable="false" />
+    <Property Name="contentname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contentpath" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="courses">
+    <Key>
+      <PropertyRef Name="courseid" />
+    </Key>
+    <Property Name="courseid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="coursename" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cdescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cteacher" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cstart" Type="time" Precision="7" Nullable="false" />
+    <Property Name="cend" Type="time" Precision="7" Nullable="false" />
+    <Property Name="cpic" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cprice" Type="int" Nullable="false" />
+    <Property Name="session" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="documents">
+    <Key>
+      <PropertyRef Name="docid" />
+    </Key>
+    <Property Name="docid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="docname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="docpath" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employee">
+    <Key>
+      <PropertyRef Name="emp_id" />
+    </Key>
+    <Property Name="emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="joindate" Type="date" Nullable="false" />
+    <Property Name="salary" Type="int" Nullable="false" />
+    <Property Name="phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="enroll">
+    <Key>
+      <PropertyRef Name="enrollid" />
+    </Key>
+    <Property Name="enrollid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseid" Type="int" Nullable="false" />
+    <Property Name="coursename" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="teacherid" Type="int" Nullable="false" />
+    <Property Name="sid" Type="int" Nullable="false" />
+    <Property Name="session" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="libraries">
+    <Key>
+      <PropertyRef Name="lid" />
+    </Key>
+    <Property Name="lid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bookname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="available" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="notices">
+    <Key>
+      <PropertyRef Name="noticeid" />
+    </Key>
+    <Property Name="noticeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cid" Type="int" Nullable="false" />
+    <Property Name="notice_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="decription" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="payid" />
+    </Key>
+    <Property Name="payid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentid" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="photoorders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="photoid" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ownerid" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="skills">
+    <Key>
+      <PropertyRef Name="photoid" />
+    </Key>
+    <Property Name="photoid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studnetid" />
+    </Key>
+    <Property Name="studnetid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="cgpa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="department" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dob" Type="date" Nullable="false" />
+    <Property Name="addmissiondate" Type="date" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="teacherid" />
+    </Key>
+    <Property Name="teacherid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uid" Type="int" Nullable="false" />
+    <Property Name="department" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="salary" Type="int" Nullable="false" />
+    <Property Name="joindate" Type="date" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+    <Property Name="dp" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_admin_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="admin" Type="Self.admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="admin">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_book_borrows_libraries">
+    <End Role="libraries" Type="Self.libraries" Multiplicity="1" />
+    <End Role="bookborrows" Type="Self.bookborrows" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="libraries">
+        <PropertyRef Name="lid" />
+      </Principal>
+      <Dependent Role="bookborrows">
+        <PropertyRef Name="libraryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_content_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="content" Type="Self.content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="content">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documents_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="documents" Type="Self.documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="documents">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="employee" Type="Self.employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="employee">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enroll_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="enroll" Type="Self.enroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="enroll">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notices_courses">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="notices" Type="Self.notices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="courseid" />
+      </Principal>
+      <Dependent Role="notices">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_student">
+    <End Role="student" Type="Self.student" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="studnetid" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_photo_orders_skills">
+    <End Role="skills" Type="Self.skills" Multiplicity="1" />
+    <End Role="photoorders" Type="Self.photoorders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="photoorders">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_skills_skills">
+    <End Role="skills" Type="Self.skills" Multiplicity="1" />
+    <End Role="skills1" Type="Self.skills" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="skills1">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_skills_skills1">
+    <End Role="skills" Type="Self.skills" Multiplicity="1" />
+    <End Role="skills1" Type="Self.skills" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="skills">
+        <PropertyRef Name="photoid" />
+      </Principal>
+      <Dependent Role="skills1">
+        <PropertyRef Name="photoid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="student" Type="Self.student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="student">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_teacher_users">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="teacher">
+        <PropertyRef Name="uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="University_ManagementModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bookborrows" EntityType="Self.bookborrows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="content" EntityType="Self.content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="documents" EntityType="Self.documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enroll" EntityType="Self.enroll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="libraries" EntityType="Self.libraries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notices" EntityType="Self.notices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="photoorders" EntityType="Self.photoorders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="skills" EntityType="Self.skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_admin_users" Association="Self.FK_admin_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="admin" EntitySet="admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_book_borrows_libraries" Association="Self.FK_book_borrows_libraries">
+      <End Role="libraries" EntitySet="libraries" />
+      <End Role="bookborrows" EntitySet="bookborrows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_content_courses" Association="Self.FK_content_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="content" EntitySet="content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documents_users" Association="Self.FK_documents_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="documents" EntitySet="documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_users" Association="Self.FK_employee_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="employee" EntitySet="employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enroll_courses" Association="Self.FK_enroll_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="enroll" EntitySet="enroll" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notices_courses" Association="Self.FK_notices_courses">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="notices" EntitySet="notices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_student" Association="Self.FK_payment_student">
+      <End Role="student" EntitySet="student" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_photo_orders_skills" Association="Self.FK_photo_orders_skills">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="photoorders" EntitySet="photoorders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_skills_skills" Association="Self.FK_skills_skills">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="skills1" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_skills_skills1" Association="Self.FK_skills_skills1">
+      <End Role="skills" EntitySet="skills" />
+      <End Role="skills1" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_users" Association="Self.FK_student_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="student" EntitySet="student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_teacher_users" Association="Self.FK_teacher_users">
+      <End Role="users" EntitySet="users" />
+      <End Role="teacher" EntitySet="teacher" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

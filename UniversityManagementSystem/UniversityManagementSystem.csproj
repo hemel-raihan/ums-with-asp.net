@@ -125,6 +125,7 @@
     <Compile Include="Controllers\CourseregController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PhotoorderController.cs" />
     <Compile Include="Controllers\StudentSkillsController.cs" />
@@ -216,6 +217,15 @@
     <Content Include="Views\Photoorder\Index.cshtml" />
     <Content Include="Views\StudentSkills\skillsdetails.cshtml" />
     <Content Include="Views\Photoorder\showorder.cshtml" />
+    <Content Include="Views\Coursereg\courses.cshtml" />
+    <Content Include="Views\Coursereg\coursedetails.cshtml" />
+    <Content Include="Views\Coursereg\enroll.cshtml" />
+    <Content Include="Views\Coursereg\topcourse.cshtml" />
+    <Content Include="Views\Library\Index.cshtml" />
+    <Content Include="Views\Library\bookdetails.cshtml" />
+    <Content Include="Views\Library\borrow.cshtml" />
+    <Content Include="Views\Library\available.cshtml" />
+    <Content Include="Views\Library\showborrow.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

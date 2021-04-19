@@ -15,7 +15,7 @@ namespace UniversityManagementSystem.Controllers
         UniversityManagementContext1 context = new UniversityManagementContext1();
         public ActionResult Index(int id)
         {
-            //var show = context.students.ToList().Where(x => x.uid == id);
+           
             ViewData["id"] = id;
             return View();
         }
@@ -23,7 +23,21 @@ namespace UniversityManagementSystem.Controllers
         [HttpPost]
         public ActionResult Index(skill skill, HttpPostedFileBase photo)
         {
-            //string path = Server.MapPath("~/App_Data/upload");
+            if (skill.title == null)
+            {
+                ViewData["title"] = "Please fill the title";
+                return View();
+            }
+            if (skill.photo == null)
+            {
+                ViewData["photo"] = "Please upload any file";
+                return View();
+            }
+            if (skill.title == null)
+            {
+                ViewData["descrip"] = "Please fill the description";
+                return View();
+            }
 
             string filename = Path.GetFileName(photo.FileName);
             string _filename = DateTime.Now.ToString("yymmssfff") + filename;

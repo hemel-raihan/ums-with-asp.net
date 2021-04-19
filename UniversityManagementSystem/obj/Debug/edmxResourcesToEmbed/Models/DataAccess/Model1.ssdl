@@ -20,7 +20,7 @@
     <Property Name="bookname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="bdate" Type="date" Nullable="false" />
     <Property Name="rdate" Type="date" Nullable="false" />
-    <Property Name="semail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="content">
     <Key>
@@ -85,6 +85,9 @@
     <Property Name="bookname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
     <Property Name="available" Type="int" Nullable="false" />
+    <Property Name="bookpic" Type="varchar" MaxLength="50" />
+    <Property Name="writtername" Type="varchar" MaxLength="50" />
+    <Property Name="writterdesc" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="notices">
     <Key>

@@ -23,6 +23,9 @@ namespace UniversityManagementSystem.Models.DataAccess
         public string bookname { get; set; }
         public int quantity { get; set; }
         public int available { get; set; }
+        public string bookpic { get; set; }
+        public string writtername { get; set; }
+        public string writterdesc { get; set; }
     
         public virtual ICollection<bookborrow> bookborrows { get; set; }
     }

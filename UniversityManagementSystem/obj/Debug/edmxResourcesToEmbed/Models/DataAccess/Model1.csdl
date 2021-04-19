@@ -21,7 +21,7 @@
     <Property Name="bookname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="bdate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="rdate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="semail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="library" Relationship="Self.FK_book_borrows_libraries" FromRole="bookborrows" ToRole="libraries" />
   </EntityType>
   <EntityType Name="content">
@@ -94,6 +94,9 @@
     <Property Name="bookname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
     <Property Name="available" Type="Int32" Nullable="false" />
+    <Property Name="bookpic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="writtername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="writterdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="bookborrows" Relationship="Self.FK_book_borrows_libraries" FromRole="libraries" ToRole="bookborrows" />
   </EntityType>
   <EntityType Name="notice">

@@ -20,6 +20,7 @@ namespace UniversityManagementSystem.Controllers
         [HttpPost]
         public ActionResult Index(photoorder order)
         {
+            
             context.photoorders.Add(order);
             context.SaveChanges();  //create the query
             ViewData["msg"] = "Order Successfully done";

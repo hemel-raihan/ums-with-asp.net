@@ -11,15 +11,18 @@ namespace UniversityManagementSystem.Models.DataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class bookborrow
     {
         public int borrowid { get; set; }
         public int libraryid { get; set; }
         public string bookname { get; set; }
         public System.DateTime bdate { get; set; }
+        [Required]
         public System.DateTime rdate { get; set; }
-        public string semail { get; set; }
+        [Required]
+        public int sid { get; set; }
     
         public virtual library library { get; set; }
     }

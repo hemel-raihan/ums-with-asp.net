@@ -15,6 +15,10 @@
 
 
         <div class="form">
+            @ViewData["title"]
+            @ViewData["photo"]
+            @ViewData["descrip"]
+           
 
             <h4>Add File</h4>
             <form method="post" enctype="multipart/form-data">
@@ -25,14 +29,14 @@
                 <font color="green"> <p> Upload Photo :</p><input type="file" name="photo"></font>
 
                 <font color="green"> <p> photo description :</p><input type="text" name="description"></font>
-              
-                    <font color="green"> <p>  :</p><input type="text" name="uid" value="@ViewData["id"]"></font>
-                
-                 
-                    <input type="submit" value="upload">
-                
+
+                <font color="green"><input type="hidden" name="uid" value="@ViewData["id"]"></font>
+
+
+                <input type="submit" value="upload">
+
             </form>
-                
+
             <a class="btn btn-primary" href="/dashboard/index" role="button">Back</a></br>
 
         </div>

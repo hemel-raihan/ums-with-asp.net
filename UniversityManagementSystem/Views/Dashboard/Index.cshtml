@@ -67,10 +67,10 @@
             @foreach (var item in Model)
             {
 
-                <a href="/courses"><i class="fa fa-desktop" aria-hidden="true"></i><span>Registration</span></a>
-                <a href="{{route('library.index')}}"><i class="fa fa-cogs" aria-hidden="true"></i><span>Library</span></a>
+                <a href="/coursereg/courses/@item.uid"><i class="fa fa-desktop" aria-hidden="true"></i><span>Registration</span></a>
+                <a href="/library/index/@item.uid"><i class="fa fa-cogs" aria-hidden="true"></i><span>Library</span></a>
                 <a href="/coursereg/index/@item.uid"><i class="fa fa-table" aria-hidden="true"></i><span>Show Registration</span></a>
-                <a href="/showbooks/{{$email}}"><i class="fa fa-th" aria-hidden="true"></i><span>Show Borrowed Book</span></a>
+                <a href="/library/showborrow/@item.uid"><i class="fa fa-th" aria-hidden="true"></i><span>Show Borrowed Book</span></a>
                 <a href="/studentskills/showskills/@item.uid"><i class="fa fa-info-circle" aria-hidden="true"></i><span>Show Skills</span></a>
                 <a href="/photoorder/showorder/@item.uid"><i class="fa fa-sliders-h" aria-hidden="true"></i><span>Show Order</span></a>
             

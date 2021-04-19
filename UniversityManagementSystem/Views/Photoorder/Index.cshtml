@@ -74,9 +74,11 @@
     <!----single product--->
     <div class="container">
         <h1>Purchase</h1>
-        <form method="post" enctype="multipart/form-data">
+
+        <form name="myForm" method="post" enctype="multipart/form-data">
             <div class="content">
                 <div class="tableshow1">
+
                     <table>
                         <tr>
                             <td>Photo Id :</td>
@@ -86,14 +88,14 @@
                             <td>Title :</td>
                             <td><input type="text" name="title" value="@Model.title"></td>
                         </tr>
-                        >
+
                         <tr>
                             <td>Photo Owner Id :</td>
                             <td><input type="text" name="ownerid" value="@Model.uid"></td>
                         </tr>
                         <tr>
                             <td>Your email :</td>
-                            <td><input type="text" name="email" placeholder="type ypur email"></td>
+                            <td><input type="text" id="email" name="email" placeholder="type ypur email"></td>
                         </tr>
 
                         <tr>
@@ -103,12 +105,29 @@
 
 
                     </table>
-                   
+
                 </div>
             </div>
         </form>
 
     </div>
+
+    <script>
+
+        var my_form = document.forms.myForm;
+
+        my_form.onsubmit = function () {
+            var email = document.getElementById("email").value;
+            
+            if (email == "") {
+                alert("Email must be filled");
+                return false;
+            }
+
+        };
+
+
+    </script>
 
     <script>
         var date = new Date();

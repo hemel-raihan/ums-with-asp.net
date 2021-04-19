@@ -21,7 +21,7 @@
           <ScalarProperty Name="bookname" ColumnName="bookname" />
           <ScalarProperty Name="bdate" ColumnName="bdate" />
           <ScalarProperty Name="rdate" ColumnName="rdate" />
-          <ScalarProperty Name="semail" ColumnName="semail" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -92,6 +92,9 @@
           <ScalarProperty Name="bookname" ColumnName="bookname" />
           <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="available" ColumnName="available" />
+          <ScalarProperty Name="bookpic" ColumnName="bookpic" />
+          <ScalarProperty Name="writtername" ColumnName="writtername" />
+          <ScalarProperty Name="writterdesc" ColumnName="writterdesc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
